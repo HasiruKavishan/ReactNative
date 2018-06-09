@@ -8,7 +8,10 @@ import MainTabNavigator from '../navigation/MainTabNavigator'
 class LoginScreen extends Component{
 
     static navigationOptions={
-        headerMode: 'none'
+        header:{
+            visible:false,
+            headerMode: 'screen'
+        }
     }
 
     swithcMainScreen(){
@@ -18,7 +21,7 @@ class LoginScreen extends Component{
     render(){
         return(       
             <Container>
-                <Header style={{width:0, height:0}}></Header>
+                
                 <Content>
                     <View style={{alignItems:'center',justifyContent:'center'}}>
                     <Image
@@ -42,6 +45,14 @@ class LoginScreen extends Component{
                             <Text style={{alignItems:'center',justifyContent:'center'}}>Login</Text>
                         </Button>
                     </View>
+
+                    {/* <View style={{alignItems:'center',justifyContent:'center'}}>
+                        <Button transparent textStyle={{color: '#87838B',}}>
+                            <Icon name="logo-facebook" title="Continue" />
+                            <Text>Continue as User</Text>
+                        </Button>
+                    </View> */}
+                    
                 
                 </Content>
                 <Footer style={{height:40}}>
