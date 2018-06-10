@@ -21,11 +21,10 @@ class LoginScreen extends Component{
     render(){
         return(       
             <Container>
-                
                 <Content>
                     <View style={{alignItems:'center',justifyContent:'center'}}>
                     <Image
-                    style={{marginTop:30,width: 200, height: 70,justifyContent: 'center',alignItems: 'center',justifyContent:'center'}}
+                    style={{marginTop:50,width: 200, height: 70,justifyContent: 'center',alignItems: 'center',justifyContent:'center'}}
                         source={
                             require('../assets/images/instagram-text-logo.png')
                         }
