@@ -3,6 +3,7 @@ import {StyleSheet,View, Vibration, Image,} from 'react-native';
 import {Container, Header, Content, Footer, FooterTab, Button, Icon, Text,Item,Input, Right} from 'native-base';
 import { SwitchNavigator, createStackNavigator } from 'react-navigation';
 import MainTabNavigator from '../navigation/MainTabNavigator'
+import RegisterScreen from './RegisterScreen'
 
 
 class LoginScreen extends Component{
@@ -18,6 +19,9 @@ class LoginScreen extends Component{
         this.props.navigation.navigate('MainTabNavigator')
     }
 
+    registerScreen(){
+        this.props.navigation.navigate('RegisterScreen')
+    }
     render(){
         return(       
             <Container>
@@ -56,7 +60,10 @@ class LoginScreen extends Component{
                 </Content>
                 <Footer style={{height:40}}>
                     <Text style={{justifyContent:'center',textAlign:'center',marginTop:15,opacity:.54,fontSize:12}}>Don't have an account? </Text>
-                    <Text  style={{justifyContent:'center',textAlign:'center',marginTop:15,fontSize:12,color:'#45b2c5'}}>Sign Up</Text>
+                    <Button transparent style={{justifyContent:'center',marginRight:30}} onPress={()=>this.registerScreen()}>
+                    <Text  style={{justifyContent:'center',textAlign:'center',fontSize:12,color:'#45b2c5'}}>Sign Up</Text>
+                    </Button>
+                    
                 </Footer>
             </Container>
         )
@@ -70,6 +77,7 @@ export default screens=createStackNavigator({
         headerMode:'none'
     },
     MainTabNavigator:{screen:MainTabNavigator},
+    RegisterScreen:{screen:RegisterScreen},
 },{
     headerMode:'none',
     navigationOptions:{
