@@ -12,10 +12,17 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
-export default class HomeScreen extends React.Component {
+import ChatList from './ChatList';
+import { createStackNavigator } from 'react-navigation'
+
+class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  chatList(){
+    this.props.navigation.navigate('ChatList');
+  }
 
   render() {
     return (
@@ -34,7 +41,7 @@ export default class HomeScreen extends React.Component {
             />
           </Body>
           <Right>
-            <Button transparent>
+            <Button transparent onPress={()=>this.chatList()}>
               <Icon name='ios-send-outline' />
             </Button>
           </Right>
@@ -42,40 +49,17 @@ export default class HomeScreen extends React.Component {
       </Container>
     );
   }
-
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
 }
+
+export default screen = createStackNavigator({
+  HomeScreen:{screen:HomeScreen},
+  ChatList:{screen:ChatList},
+},{
+  headerMode:'none',
+  navigationOptions:{
+      headerMode:'none',
+  }
+})
 
 const styles = StyleSheet.create({
   container: {
