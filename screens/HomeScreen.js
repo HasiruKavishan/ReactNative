@@ -15,9 +15,10 @@ import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'nativ
 import ChatList from './ChatList';
 import { createStackNavigator } from 'react-navigation'
 
-class HomeScreen extends React.Component {
+export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
+    headerVisible: false,
   };
 
   chatList(){
@@ -51,15 +52,17 @@ class HomeScreen extends React.Component {
   }
 }
 
-export default screen = createStackNavigator({
-  HomeScreen:{screen:HomeScreen},
-  ChatList:{screen:ChatList},
-},{
-  headerMode:'none',
-  navigationOptions:{
-      headerMode:'none',
-  }
-})
+// export default screen = createStackNavigator({
+//   HomeScreen:{screen:HomeScreen},
+//   ChatList:{screen:ChatList},
+// },{
+//   headerMode:'none',
+//   navigationOptions:{
+//       headerMode:'none',
+//       header: null,
+//     headerVisible: false,
+//   }
+// })
 
 const styles = StyleSheet.create({
   container: {

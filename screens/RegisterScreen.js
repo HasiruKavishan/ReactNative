@@ -4,11 +4,16 @@ import { Container, Header, Left, Body, Right, Button, Icon, Segment, Content, T
 import { SwitchNavigator, createStackNavigator } from 'react-navigation';
 import PhoneTabScreen from './PhoneTabScreen';
 import EmailTabScreen from './EmailTabScreen';
+import LoginScreen from './LoginScreen';
 
 export default class RegisterScreen extends Component{
     static navigationOptions = {
         header: null,
-      };
+    };
+
+    loginScreen(){
+      this.props.navigation.navigate("LoginScreen");
+    }
     render(){
         return(
             <Container style={{backgroundColor:'#ffff'}}>
@@ -25,7 +30,7 @@ export default class RegisterScreen extends Component{
         </Content>
         <Footer style={{height:40}}>
                     <Text style={{justifyContent:'center',textAlign:'center',marginTop:15,opacity:.54,fontSize:12}}>Already have an account? </Text>
-                    <Button transparent style={{justifyContent:'center',marginRight:30}} onPress={()=>this.registerScreen()}>
+                    <Button transparent style={{justifyContent:'center',marginRight:30}} onPress={()=>this.loginScreen()}>
                     <Text  style={{justifyContent:'center',textAlign:'center',fontSize:12,color:'#45b2c5'}}>Sign In</Text>
                     </Button>
                     

@@ -4,6 +4,7 @@ import {Container, Header, Content, Footer, FooterTab, Button, Icon, Text,Item,I
 import { SwitchNavigator, createStackNavigator } from 'react-navigation';
 import MainTabNavigator from '../navigation/MainTabNavigator'
 import RegisterScreen from './RegisterScreen'
+import ChatList from './ChatList';
 
 
 class LoginScreen extends Component{
@@ -78,6 +79,7 @@ export default screens=createStackNavigator({
     },
     MainTabNavigator:{screen:MainTabNavigator},
     RegisterScreen:{screen:RegisterScreen},
+    ChatList:{screen:ChatList},
 },{
     headerMode:'none',
     navigationOptions:{
