@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Container, Header, Left, Body, Right, Button, Icon, Title, Footer, Text,Content,List,ListItem,Thumbnail } from 'native-base';
+import { 
+  Container, Header, Left, Body, Right, Button, Icon, Title, Footer,
+  Text, Content, List, ListItem, Thumbnail, Item, Input 
+} from 'native-base';
 import HomeScreen from './HomeScreen'
 export default class ChatList extends Component {
 
@@ -32,7 +35,12 @@ export default class ChatList extends Component {
             </Button>
           </Right>
         </Header>
-        <Content>
+        <Content style={{backgroundColor:'#ffff',padding:8}}>
+          <Item searchBar rounded style={{borderRadius:8,height:40,backgroundColor:'#ECEFF1',width:298}}>
+            <Icon name="ios-search" />
+            <Input placeholder="Search" />
+            <Icon name="ios-people" />
+          </Item>
           <List>
             <ListItem>
               <Thumbnail square size={80} source={require('../assets/images/colorInsta.png')} />
