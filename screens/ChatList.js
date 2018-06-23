@@ -50,6 +50,24 @@ export default class ChatList extends Component {
               </Body>
             </ListItem>
           </List>
+          <List>
+            <ListItem>
+              <Thumbnail square size={80} source={require('../assets/images/TeamMember1.jpg')} />
+              <Body>
+                <Text>Sankhadeep</Text>
+                <Text note>Its time to build a difference . .</Text>
+              </Body>
+            </ListItem>
+          </List>
+          <List>
+            <ListItem>
+              <Thumbnail square size={80} source={require('../assets/images/TeamMember2.jpg')} />
+              <Body>
+                <Text>Sankhadeep</Text>
+                <Text note>Its time to build a difference . .</Text>
+              </Body>
+            </ListItem>
+          </List>
         </Content>
         <Footer>
           <Button transparent >

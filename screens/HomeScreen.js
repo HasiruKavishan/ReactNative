@@ -4,14 +4,14 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
-import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
+import { Container, Header, Left, Body, Right, Button, Icon, Title, Content, Card, CardItem, Thumbnail, Text, } from 'native-base';
+// import { Container, Header,  Button, Left, Body, Right } from 'native-base'
 import ChatList from './ChatList';
 import { createStackNavigator } from 'react-navigation'
 
@@ -47,6 +47,70 @@ export default class HomeScreen extends React.Component {
             </Button>
           </Right>
         </Header>
+        <Content>
+          <Card>
+            <CardItem>
+              <Left>
+                <Thumbnail source={require('../assets/images/TeamMember.jpg')} />
+                <Body>
+                  <Text>Jhone Doe</Text>
+                  <Text note>JDoe</Text>
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image source={require('../assets/images/story.jpg')} style={{height: 200, width: null, flex: 1}}/>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button transparent>
+                  <Icon active name="thumbs-up" />
+                  <Text>12 Likes</Text>
+                </Button>
+              </Left>
+              <Body>
+                <Button transparent>
+                  <Icon active name="chatbubbles" />
+                  <Text>4 Comments</Text>
+                </Button>
+              </Body>
+              <Right>
+                <Text>11h ago</Text>
+              </Right>
+            </CardItem>
+          </Card>
+          <Card>
+            <CardItem>
+              <Left>
+                <Thumbnail source={require('../assets/images/TeamMember2.jpg')} />
+                <Body>
+                  <Text>Jhone Doe</Text>
+                  <Text note>JDoe</Text>
+                </Body>
+              </Left>
+            </CardItem>
+            <CardItem cardBody>
+              <Image source={require('../assets/images/instaHomePicture.jpg')} style={{height: 200, width: null, flex: 1}}/>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Button transparent>
+                  <Icon active name="thumbs-up" />
+                  <Text>12 Likes</Text>
+                </Button>
+              </Left>
+              <Body>
+                <Button transparent>
+                  <Icon active name="chatbubbles" />
+                  <Text>4 Comments</Text>
+                </Button>
+              </Body>
+              <Right>
+                <Text>11h ago</Text>
+              </Right>
+            </CardItem>
+          </Card>
+        </Content>
       </Container>
     );
   }
