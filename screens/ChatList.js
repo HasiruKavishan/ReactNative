@@ -43,7 +43,7 @@ export default class ChatList extends Component {
           </Item>
           <List>
             <ListItem>
-              <Thumbnail square size={80} source={require('../assets/images/colorInsta.png')} />
+              <Thumbnail square size={80} source={require('../assets/images/TeamMember.jpg')} />
               <Body>
                 <Text>Sankhadeep</Text>
                 <Text note>Its time to build a difference . .</Text>
