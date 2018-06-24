@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import {
   Image,
   Platform,
@@ -10,12 +10,22 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
-import { Container, Header, Left, Body, Right, Button, Icon, Title, Content, Card, CardItem, Thumbnail, Text, } from 'native-base';
+import { Container, Header, Left, Body, Right, Button, Icon, Title, Content, Card, CardItem, Thumbnail, Text,ActionSheet, Root } from 'native-base';
 // import { Container, Header,  Button, Left, Body, Right } from 'native-base'
 import ChatList from './ChatList';
-import { createStackNavigator } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation';
 
-export default class HomeScreen extends React.Component {
+var BUTTONS = ["Share to Facebook", "Share to Messenger", "Copy Link", "Turn On Post Notification","Report","Mute","Unfollow", "Cancel"];
+var DESTRUCTIVE_INDEX = 3;
+var CANCEL_INDEX = 4;
+
+export default class HomeScreen extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   static navigationOptions = {
     header: null,
     headerVisible: false,
@@ -27,7 +37,8 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <Container>
+      <Root>
+        <Container>
         <Header>
           <Left>
             <Button transparent>
@@ -47,7 +58,7 @@ export default class HomeScreen extends React.Component {
             </Button>
           </Right>
         </Header>
-        <Content>
+        <Content padder>
           <Card>
             <CardItem>
               <Left>
@@ -57,6 +68,24 @@ export default class HomeScreen extends React.Component {
                   <Text note>JDoe</Text>
                 </Body>
               </Left>
+              <Right>
+                <Button transparent
+                  onPress={() =>
+                    ActionSheet.show(
+                      {
+                        options: BUTTONS,
+                        cancelButtonIndex: CANCEL_INDEX,
+                        destructiveButtonIndex: DESTRUCTIVE_INDEX,
+                        title: "Testing ActionSheet"
+                      },
+                      buttonIndex => {
+                        this.setState({ clicked: BUTTONS[buttonIndex] });
+                      }
+                    )}
+                >
+                  <Icon name='more'/>
+                </Button>
+              </Right>
             </CardItem>
             <CardItem cardBody>
               <Image source={require('../assets/images/story.jpg')} style={{height: 200, width: null, flex: 1}}/>
@@ -112,6 +141,8 @@ export default class HomeScreen extends React.Component {
           </Card>
         </Content>
       </Container>
+      </Root>
+      
     );
   }
 }
