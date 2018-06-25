@@ -76,7 +76,7 @@ export default class HomeScreen extends Component {
                         options: BUTTONS,
                         cancelButtonIndex: CANCEL_INDEX,
                         destructiveButtonIndex: DESTRUCTIVE_INDEX,
-                        title: "Testing ActionSheet"
+                        // title: "Testing ActionSheet"
                       },
                       buttonIndex => {
                         this.setState({ clicked: BUTTONS[buttonIndex] });
@@ -93,18 +93,29 @@ export default class HomeScreen extends Component {
             <CardItem>
               <Left>
                 <Button transparent>
-                  <Icon active name="thumbs-up" />
-                  <Text>12 Likes</Text>
+                  <Icon active name="ios-heart-outline" />
+                  <Text></Text>
+                </Button>
+                <Button transparent>
+                  <Icon active name="ios-chatbubbles-outline" />
+                  <Text></Text>
+                </Button>
+                <Button transparent>
+                  <Icon active name="ios-send-outline" />
+                  <Text></Text>
                 </Button>
               </Left>
               <Body>
-                <Button transparent>
-                  <Icon active name="chatbubbles" />
-                  <Text>4 Comments</Text>
-                </Button>
+                {/* <Button transparent>
+                  <Icon active name="ios-chatbubbles-outline" />
+                  <Text></Text>
+                </Button> */}
               </Body>
               <Right>
-                <Text>11h ago</Text>
+                <Button transparent>
+                <Icon active name="ios-bookmark-outline"/>
+                <Text></Text>
+                </Button>
               </Right>
             </CardItem>
           </Card>
@@ -117,25 +128,54 @@ export default class HomeScreen extends Component {
                   <Text note>JDoe</Text>
                 </Body>
               </Left>
+              <Right>
+                <Button transparent
+                  onPress={() =>
+                    ActionSheet.show(
+                      {
+                        options: BUTTONS,
+                        cancelButtonIndex: CANCEL_INDEX,
+                        destructiveButtonIndex: DESTRUCTIVE_INDEX,
+                        // title: "Testing ActionSheet"
+                      },
+                      buttonIndex => {
+                        this.setState({ clicked: BUTTONS[buttonIndex] });
+                      }
+                    )}
+                >
+                  <Icon name='more'/>
+                </Button>
+              </Right>
             </CardItem>
             <CardItem cardBody>
               <Image source={require('../assets/images/instaHomePicture.jpg')} style={{height: 200, width: null, flex: 1}}/>
             </CardItem>
             <CardItem>
-              <Left>
-                <Button transparent>
-                  <Icon active name="thumbs-up" />
-                  <Text>12 Likes</Text>
-                </Button>
-              </Left>
-              <Body>
-                <Button transparent>
-                  <Icon active name="chatbubbles" />
-                  <Text>4 Comments</Text>
-                </Button>
-              </Body>
+            <Left>
+            <Button transparent>
+              <Icon active name="ios-heart-outline" />
+              <Text></Text>
+            </Button>
+            <Button transparent>
+              <Icon active name="ios-chatbubbles-outline" />
+              <Text></Text>
+            </Button>
+            <Button transparent>
+              <Icon active name="ios-send-outline" />
+              <Text></Text>
+            </Button>
+          </Left>
+          <Body>
+            {/* <Button transparent>
+              <Icon active name="ios-chatbubbles-outline" />
+              <Text></Text>
+            </Button> */}
+          </Body>
               <Right>
-                <Text>11h ago</Text>
+                <Button transparent>
+                <Icon active name="ios-bookmark-outline"/>
+                <Text></Text>
+                </Button>
               </Right>
             </CardItem>
           </Card>
