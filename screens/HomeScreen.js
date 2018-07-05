@@ -14,12 +14,19 @@ import { Container, Header, Left, Body, Right, Button, Icon, Title, Content, Car
 // import { Container, Header,  Button, Left, Body, Right } from 'native-base'
 import ChatList from './ChatList';
 import { createStackNavigator } from 'react-navigation';
+// import { RNCamera } from 'react-native-camera';
+// import { Camera, Permissions } from 'expo';
 
 var BUTTONS = ["Share to Facebook", "Share to Messenger", "Copy Link", "Turn On Post Notification","Report","Mute","Unfollow", "Cancel"];
 var DESTRUCTIVE_INDEX = 3;
 var CANCEL_INDEX = 4;
 
 export default class HomeScreen extends Component {
+
+  // state = {
+  //   hasCameraPermission: null,
+  //   type: Camera.Constants.Type.back,
+  // };
 
   constructor(props) {
     super(props);
@@ -34,16 +41,37 @@ export default class HomeScreen extends Component {
   chatList(){
     this.props.navigation.navigate('ChatList');
   }
+  
+  // takePicture = async () => {
+  //   try {
+  //     const data = await this.camera.takePictureAsync();
+  //     console.log('Path to image: ' + data.uri);
+  //   } catch (err) {
+  //     // console.log('err: ', err);
+  //   }
+  // };
 
   render() {
+    // const { hasCameraPermission } = this.state;
     return (
       <Root>
         <Container>
         <Header>
           <Left>
-            <Button transparent>
-              <Icon name='ios-camera-outline' />
-            </Button>
+          {/* <Camera style={{ flex: 1 }} type={this.state.type}> */}
+              
+              <Button transparent 
+              // onPress={() => {
+              //     this.setState({
+              //       type: this.state.type === Camera.Constants.Type.back
+              //         ? Camera.Constants.Type.front
+              //         : Camera.Constants.Type.back,
+              //     });
+              //   }}
+              >
+                <Icon name='ios-camera-outline' />
+              </Button>
+            {/* </Camera>   */}
           </Left>
           <Body>
             <Image
