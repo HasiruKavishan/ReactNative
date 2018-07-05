@@ -13,6 +13,7 @@ import { MonoText } from '../components/StyledText';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content, Card, CardItem, Thumbnail, Text,ActionSheet, Root } from 'native-base';
 // import { Container, Header,  Button, Left, Body, Right } from 'native-base'
 import ChatList from './ChatList';
+import CameraScreen from './CameraScreen';
 import { createStackNavigator } from 'react-navigation';
 // import { RNCamera } from 'react-native-camera';
 // import { Camera, Permissions } from 'expo';
@@ -51,6 +52,10 @@ export default class HomeScreen extends Component {
   //   }
   // };
 
+  cameraScreen(){
+    this.props.navigation.navigate("CameraScreen");
+  }
+
   render() {
     // const { hasCameraPermission } = this.state;
     return (
@@ -60,7 +65,8 @@ export default class HomeScreen extends Component {
           <Left>
           {/* <Camera style={{ flex: 1 }} type={this.state.type}> */}
               
-              <Button transparent 
+              <Button transparent
+                onPress={()=>this.cameraScreen()} 
               // onPress={() => {
               //     this.setState({
               //       type: this.state.type === Camera.Constants.Type.back

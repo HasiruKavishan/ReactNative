@@ -5,6 +5,7 @@ import { SwitchNavigator, createStackNavigator } from 'react-navigation';
 import MainTabNavigator from '../navigation/MainTabNavigator'
 import RegisterScreen from './RegisterScreen'
 import ChatList from './ChatList';
+import CameraScreen from './CameraScreen'
 
 
 class LoginScreen extends Component{
@@ -80,6 +81,7 @@ export default screens=createStackNavigator({
     MainTabNavigator:{screen:MainTabNavigator},
     RegisterScreen:{screen:RegisterScreen},
     ChatList:{screen:ChatList},
+    CameraScreen:{screen:CameraScreen},
 },{
     headerMode:'none',
     navigationOptions:{
