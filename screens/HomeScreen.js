@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import {
   Image,
   Platform,
@@ -10,7 +10,7 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
-import { Container, Header, Left, Body, Right, Button, Icon, Title, Content, Card, CardItem, Thumbnail, Text,ActionSheet, Root } from 'native-base';
+import { Container, Header, Left, Body, Right, Button, Icon, Title, Content, Card, CardItem, Thumbnail, Text, ActionSheet, Root } from 'native-base';
 // import { Container, Header,  Button, Left, Body, Right } from 'native-base'
 import ChatList from './ChatList';
 import CameraScreen from './CameraScreen';
@@ -18,7 +18,7 @@ import { createStackNavigator } from 'react-navigation';
 // import { RNCamera } from 'react-native-camera';
 // import { Camera, Permissions } from 'expo';
 
-var BUTTONS = ["Share to Facebook", "Share to Messenger", "Copy Link", "Turn On Post Notification","Report","Mute","Unfollow", "Cancel"];
+var BUTTONS = ["Share to Facebook", "Share to Messenger", "Copy Link", "Turn On Post Notification", "Report", "Mute", "Unfollow", "Cancel"];
 var DESTRUCTIVE_INDEX = 3;
 var CANCEL_INDEX = 4;
 
@@ -39,10 +39,10 @@ export default class HomeScreen extends Component {
     headerVisible: false,
   };
 
-  chatList(){
+  chatList() {
     this.props.navigation.navigate('ChatList');
   }
-  
+
   // takePicture = async () => {
   //   try {
   //     const data = await this.camera.takePictureAsync();
@@ -52,7 +52,7 @@ export default class HomeScreen extends Component {
   //   }
   // };
 
-  cameraScreen(){
+  cameraScreen() {
     this.props.navigation.navigate("CameraScreen");
   }
 
@@ -61,12 +61,12 @@ export default class HomeScreen extends Component {
     return (
       <Root>
         <Container>
-        <Header>
-          <Left>
-          {/* <Camera style={{ flex: 1 }} type={this.state.type}> */}
-              
+          <Header>
+            <Left>
+              {/* <Camera style={{ flex: 1 }} type={this.state.type}> */}
+
               <Button transparent
-                onPress={()=>this.cameraScreen()} 
+                onPress={() => this.cameraScreen()}
               // onPress={() => {
               //     this.setState({
               //       type: this.state.type === Camera.Constants.Type.back
@@ -77,146 +77,146 @@ export default class HomeScreen extends Component {
               >
                 <Icon name='ios-camera-outline' />
               </Button>
-            {/* </Camera>   */}
-          </Left>
-          <Body>
-            <Image
-              source={require('../assets/images/instagram-text-logo.png')}
-              style={{width:100,height:35}}
-              resizeMode="contain"
-            />
-          </Body>
-          <Right>
-            <Button transparent onPress={()=>this.chatList()}>
-              <Icon name='ios-send-outline' />
-            </Button>
-          </Right>
-        </Header>
-        <Content padder>
-          <Card>
-            <CardItem>
-              <Left>
-                <Thumbnail source={require('../assets/images/TeamMember.jpg')} />
+              {/* </Camera>   */}
+            </Left>
+            <Body>
+              <Image
+                source={require('../assets/images/instagram-text-logo.png')}
+                style={{ width: 100, height: 35 }}
+                resizeMode="contain"
+              />
+            </Body>
+            <Right>
+              <Button transparent onPress={() => this.chatList()}>
+                <Icon name='ios-send-outline' />
+              </Button>
+            </Right>
+          </Header>
+          <Content padder>
+            <Card>
+              <CardItem>
+                <Left>
+                  <Thumbnail source={require('../assets/images/TeamMember.jpg')} />
+                  <Body>
+                    <Text>Jhone Doe</Text>
+                    <Text note>JDoe</Text>
+                  </Body>
+                </Left>
+                <Right>
+                  <Button transparent
+                    onPress={() =>
+                      ActionSheet.show(
+                        {
+                          options: BUTTONS,
+                          cancelButtonIndex: CANCEL_INDEX,
+                          destructiveButtonIndex: DESTRUCTIVE_INDEX,
+                          // title: "Testing ActionSheet"
+                        },
+                        buttonIndex => {
+                          this.setState({ clicked: BUTTONS[buttonIndex] });
+                        }
+                      )}
+                  >
+                    <Icon name='more' />
+                  </Button>
+                </Right>
+              </CardItem>
+              <CardItem cardBody>
+                <Image source={require('../assets/images/story.jpg')} style={{ height: 200, width: null, flex: 1 }} />
+              </CardItem>
+              <CardItem>
+                <Left>
+                  <Button transparent>
+                    <Icon active name="ios-heart-outline" />
+                    <Text></Text>
+                  </Button>
+                  <Button transparent>
+                    <Icon active name="ios-chatbubbles-outline" />
+                    <Text></Text>
+                  </Button>
+                  <Button transparent>
+                    <Icon active name="ios-send-outline" />
+                    <Text></Text>
+                  </Button>
+                </Left>
                 <Body>
-                  <Text>Jhone Doe</Text>
-                  <Text note>JDoe</Text>
-                </Body>
-              </Left>
-              <Right>
-                <Button transparent
-                  onPress={() =>
-                    ActionSheet.show(
-                      {
-                        options: BUTTONS,
-                        cancelButtonIndex: CANCEL_INDEX,
-                        destructiveButtonIndex: DESTRUCTIVE_INDEX,
-                        // title: "Testing ActionSheet"
-                      },
-                      buttonIndex => {
-                        this.setState({ clicked: BUTTONS[buttonIndex] });
-                      }
-                    )}
-                >
-                  <Icon name='more'/>
-                </Button>
-              </Right>
-            </CardItem>
-            <CardItem cardBody>
-              <Image source={require('../assets/images/story.jpg')} style={{height: 200, width: null, flex: 1}}/>
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Button transparent>
-                  <Icon active name="ios-heart-outline" />
-                  <Text></Text>
-                </Button>
-                <Button transparent>
-                  <Icon active name="ios-chatbubbles-outline" />
-                  <Text></Text>
-                </Button>
-                <Button transparent>
-                  <Icon active name="ios-send-outline" />
-                  <Text></Text>
-                </Button>
-              </Left>
-              <Body>
-                {/* <Button transparent>
+                  {/* <Button transparent>
                   <Icon active name="ios-chatbubbles-outline" />
                   <Text></Text>
                 </Button> */}
-              </Body>
-              <Right>
-                <Button transparent>
-                <Icon active name="ios-bookmark-outline"/>
-                <Text></Text>
-                </Button>
-              </Right>
-            </CardItem>
-          </Card>
-          <Card>
-            <CardItem>
-              <Left>
-                <Thumbnail source={require('../assets/images/TeamMember2.jpg')} />
-                <Body>
-                  <Text>Jhone Doe</Text>
-                  <Text note>JDoe</Text>
                 </Body>
-              </Left>
-              <Right>
-                <Button transparent
-                  onPress={() =>
-                    ActionSheet.show(
-                      {
-                        options: BUTTONS,
-                        cancelButtonIndex: CANCEL_INDEX,
-                        destructiveButtonIndex: DESTRUCTIVE_INDEX,
-                        // title: "Testing ActionSheet"
-                      },
-                      buttonIndex => {
-                        this.setState({ clicked: BUTTONS[buttonIndex] });
-                      }
-                    )}
-                >
-                  <Icon name='more'/>
-                </Button>
-              </Right>
-            </CardItem>
-            <CardItem cardBody>
-              <Image source={require('../assets/images/instaHomePicture.jpg')} style={{height: 200, width: null, flex: 1}}/>
-            </CardItem>
-            <CardItem>
-            <Left>
-            <Button transparent>
-              <Icon active name="ios-heart-outline" />
-              <Text></Text>
-            </Button>
-            <Button transparent>
-              <Icon active name="ios-chatbubbles-outline" />
-              <Text></Text>
-            </Button>
-            <Button transparent>
-              <Icon active name="ios-send-outline" />
-              <Text></Text>
-            </Button>
-          </Left>
-          <Body>
-            {/* <Button transparent>
+                <Right>
+                  <Button transparent>
+                    <Icon active name="ios-bookmark-outline" />
+                    <Text></Text>
+                  </Button>
+                </Right>
+              </CardItem>
+            </Card>
+            <Card>
+              <CardItem>
+                <Left>
+                  <Thumbnail source={require('../assets/images/TeamMember2.jpg')} />
+                  <Body>
+                    <Text>Jhone Doe</Text>
+                    <Text note>JDoe</Text>
+                  </Body>
+                </Left>
+                <Right>
+                  <Button transparent
+                    onPress={() =>
+                      ActionSheet.show(
+                        {
+                          options: BUTTONS,
+                          cancelButtonIndex: CANCEL_INDEX,
+                          destructiveButtonIndex: DESTRUCTIVE_INDEX,
+                          // title: "Testing ActionSheet"
+                        },
+                        buttonIndex => {
+                          this.setState({ clicked: BUTTONS[buttonIndex] });
+                        }
+                      )}
+                  >
+                    <Icon name='more' />
+                  </Button>
+                </Right>
+              </CardItem>
+              <CardItem cardBody>
+                <Image source={require('../assets/images/instaHomePicture.jpg')} style={{ height: 200, width: null, flex: 1 }} />
+              </CardItem>
+              <CardItem>
+                <Left>
+                  <Button transparent>
+                    <Icon active name="ios-heart-outline" />
+                    <Text></Text>
+                  </Button>
+                  <Button transparent>
+                    <Icon active name="ios-chatbubbles-outline" />
+                    <Text></Text>
+                  </Button>
+                  <Button transparent>
+                    <Icon active name="ios-send-outline" />
+                    <Text></Text>
+                  </Button>
+                </Left>
+                <Body>
+                  {/* <Button transparent>
               <Icon active name="ios-chatbubbles-outline" />
               <Text></Text>
             </Button> */}
-          </Body>
-              <Right>
-                <Button transparent>
-                <Icon active name="ios-bookmark-outline"/>
-                <Text></Text>
-                </Button>
-              </Right>
-            </CardItem>
-          </Card>
-        </Content>
-      </Container>
+                </Body>
+                <Right>
+                  <Button transparent>
+                    <Icon active name="ios-bookmark-outline" />
+                    <Text></Text>
+                  </Button>
+                </Right>
+              </CardItem>
+            </Card>
+          </Content>
+        </Container>
       </Root>
-      
+
     );
   }
 }

@@ -1,38 +1,38 @@
 import React, { Component } from 'react';
-import { 
+import {
   Container, Header, Left, Body, Right, Button, Icon, Title, Footer,
-  Text, Content, List, ListItem, Thumbnail, Item, Input 
+  Text, Content, List, ListItem, Thumbnail, Item, Input
 } from 'native-base';
 import HomeScreen from './HomeScreen';
 import CameraScreen from './CameraScreen';
 export default class ChatList extends Component {
 
-  
-    static navigationOptions={
-        header:{
-          headervisible:false,
-          header: null,  
-        }
-    }
 
-    goBack(){
-      alert("work");
-      this.props.navigation.navigate("HomeScreen");
+  static navigationOptions = {
+    header: {
+      headervisible: false,
+      header: null,
     }
+  }
 
-    cameraScreen(){
-      this.props.navigation.navigate("CameraScreen");
-    }
+  goBack() {
+    alert("work");
+    this.props.navigation.navigate("HomeScreen");
+  }
 
-    add(){
-      alert("add friends");
-    }
+  cameraScreen() {
+    this.props.navigation.navigate("CameraScreen");
+  }
+
+  add() {
+    alert("add friends");
+  }
   render() {
     return (
       <Container>
         <Header>
           <Left>
-            <Button transparent onPress={()=>this.goBack()}>
+            <Button transparent onPress={() => this.goBack()}>
               <Icon name="arrow-back" />
             </Button>
           </Left>
@@ -40,13 +40,13 @@ export default class ChatList extends Component {
             <Title>Direct</Title>
           </Body>
           <Right>
-            <Button transparent onPress={()=>this.add()}>
+            <Button transparent onPress={() => this.add()}>
               <Icon name='add' />
             </Button>
           </Right>
         </Header>
-        <Content style={{backgroundColor:'#ffff',padding:8}}>
-          <Item searchBar rounded style={{borderRadius:8,height:40,backgroundColor:'#ECEFF1',width:298}}>
+        <Content style={{ backgroundColor: '#ffff', padding: 8 }}>
+          <Item searchBar rounded style={{ borderRadius: 8, height: 40, backgroundColor: '#ECEFF1', width: 298 }}>
             <Icon name="ios-search" />
             <Input placeholder="Search" />
             <Icon name="ios-people" />
@@ -80,8 +80,8 @@ export default class ChatList extends Component {
           </List>
         </Content>
         <Footer>
-          <Button transparent onPress={()=>this.cameraScreen()}>
-            <Icon name='camera' ti/>
+          <Button transparent onPress={() => this.cameraScreen()}>
+            <Icon name='camera' ti />
             {/* <Title>Camera</Title> */}
           </Button>
         </Footer>
