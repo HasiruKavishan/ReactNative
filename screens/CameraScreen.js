@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Camera, Permissions,  } from 'expo';
+import {  Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
+import HomeScreen from './HomeScreen'
 import {
     Image,
     Platform,
@@ -20,6 +22,10 @@ import {
         const { status } = await Permissions.askAsync(Permissions.CAMERA);
         this.setState({ hasCameraPermission: status === 'granted' });
       }
+
+      goBack(){
+        this.props.navigation.navigate("HomeScreen");
+      }
       render() {
         const { hasCameraPermission } = this.state;
         if (hasCameraPermission === null) {
@@ -29,6 +35,21 @@ import {
         } else {
           return (
             <View style={{ flex: 1 }}>
+            <Header noShadow>
+          <Left>
+            <Button transparent onPress={()=>this.goBack()}>
+              <Icon name='arrow-back' />
+            </Button>
+          </Left>
+          <Body>
+            {/* <Title>Header</Title> */}
+          </Body>
+          <Right>
+            <Button transparent>
+              <Icon name='menu' />
+            </Button>
+          </Right>
+        </Header>
               <Camera style={{ flex: 1 }} type={this.state.type}>
                 <View
                   style={{
