@@ -5,6 +5,7 @@ import {
 } from 'native-base';
 import HomeScreen from './HomeScreen';
 import CameraScreen from './CameraScreen';
+import MessageScreen from './MessageScreen'
 export default class ChatList extends Component {
 
 
@@ -22,6 +23,10 @@ export default class ChatList extends Component {
 
   cameraScreen() {
     this.props.navigation.navigate("CameraScreen");
+  }
+  meaasge() {
+    alert("It works");
+    this.props.navigation.navigate("MessageScreen");
   }
 
   add() {
@@ -54,9 +59,9 @@ export default class ChatList extends Component {
           <List>
             <ListItem>
               <Thumbnail square size={80} source={require('../assets/images/TeamMember.jpg')} />
-              <Body>
-                <Text>Sankhadeep</Text>
-                <Text note>Its time to build a difference . .</Text>
+              <Body >
+                <Text onPress={() => this.meaasge()}>Sankhadeep</Text>
+                <Text onPress={() => this.meaasge()} note>Its time to build a difference . .</Text>
               </Body>
             </ListItem>
           </List>
