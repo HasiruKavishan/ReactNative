@@ -25,7 +25,7 @@ export default class ChatList extends Component {
     this.props.navigation.navigate("CameraScreen");
   }
   meaasge() {
-    alert("It works");
+    // alert("It works");
     this.props.navigation.navigate("MessageScreen");
   }
 
