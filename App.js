@@ -4,6 +4,18 @@ import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
 
+import * as firebase from 'firebase';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDr4w0MWt9Rs2EIkmedHdz_wR0RaygfXk0",
+  authDomain: "react-native-insta2018.firebaseapp.com",
+  databaseURL: "https://react-native-insta2018.firebaseio.com",
+  projectId: "react-native-insta2018",
+  storageBucket: "react-native-insta2018.appspot.com",
+  messagingSenderId: "710708508378"
+};
+firebase.initializeApp(firebaseConfig);
+
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
