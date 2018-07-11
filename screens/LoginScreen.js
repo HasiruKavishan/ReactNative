@@ -11,6 +11,14 @@ import MessageScreen from './MessageScreen';
 
 class LoginScreen extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            username: "",
+            password: "",
+        }
+    }
+
     static navigationOptions = {
         header: {
             visible: false,
@@ -19,6 +27,8 @@ class LoginScreen extends Component {
     }
 
     swithcMainScreen() {
+        // debugger;
+        alert(this.state.username);
         this.props.navigation.navigate('MainTabNavigator')
     }
 
@@ -40,7 +50,11 @@ class LoginScreen extends Component {
 
                     <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                         <Item regular style={{ marginTop: 30, borderRadius: 4, width: 270, height: 40, padding: 10 }}>
-                            <Input style={{ opacity: .54, fontSize: 13 }} placeholder='Phone number, username or email' />
+                            <Input style={{ opacity: .54, fontSize: 13 }} placeholder='Email'
+                                onChangeText={(text) => {
+                                    this.setState({ username: text })
+                                }}
+                            />
                         </Item>
 
                         <Item regular style={{ marginTop: 15, borderRadius: 4, width: 270, height: 40 }}>
@@ -83,7 +97,7 @@ export default screens = createStackNavigator({
     RegisterScreen: { screen: RegisterScreen },
     ChatList: { screen: ChatList },
     CameraScreen: { screen: CameraScreen },
-    MessageScreen:{screen:MessageScreen},
+    MessageScreen: { screen: MessageScreen },
 }, {
         headerMode: 'none',
         navigationOptions: {
