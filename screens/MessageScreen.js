@@ -14,7 +14,6 @@ export default class MessageScreen extends Component {
 
     goBack() {
         // alert("work");
-        
         this.props.navigation.navigate("ChatList");
     }
 

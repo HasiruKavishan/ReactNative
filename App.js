@@ -7,7 +7,7 @@ import RootNavigation from './navigation/RootNavigation';
 import * as firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDr4w0MWt9Rs2EIkmedHdz_wR0RaygfXk0",
+  
   authDomain: "react-native-insta2018.firebaseapp.com",
   databaseURL: "https://react-native-insta2018.firebaseio.com",
   projectId: "react-native-insta2018",
